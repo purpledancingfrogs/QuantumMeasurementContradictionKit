@@ -45,13 +45,6 @@ File: \examples/sample_report.json\
   - contradiction_flag: bool
   - note: str
 
-## Sample console outputs
-\\\	ext
-
-
-WignerFriendResult(friend_outcome='definite outcome (collapsed)', wigner_description='unitary superposition', contradiction_flag=True, note='toy: friend assigns collapse; wigner assigns unitary evolution')
-\\\
-
 ## Audit artifacts
 - .asios/audit_index.json — sha256 manifest
 - .asios/tracked_files.txt — tracked files snapshot
