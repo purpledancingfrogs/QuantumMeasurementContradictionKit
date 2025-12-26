@@ -1,53 +1,87 @@
 # QuantumMeasurementContradictionKit (QMCK)
 
-Sandbox for the quantum measurement problem: toy experiments that keep the *observer-role contradiction* explicit without declaring a winner.
+Sandbox for the quantum measurement problem: small, deterministic toy experiments that preserve (not “solve”) the unitary-vs-outcome contradiction.
 
-Interpretations included:
-- **Copenhagen** (collapse on measurement)
-- **Many-Worlds** (branching; no collapse)
-- **Objective Collapse** (stochastic collapse with tunable strength)
+![CI](https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit/actions/workflows/ci.yml/badge.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Experiments included:
-- Schrödinger Cat (macro entanglement + decoherence timeline)
-- Wigner's Friend (nested observers; incompatible updates)
-- Double Slit (which-path coupling vs interference visibility)
+## What it includes
 
-## Install (editable)
-`powershell
+Interpretations:
+- Copenhagen (collapse postulate)
+- Many-Worlds (unitary branching)
+- Objective collapse (toy GRW-style knob)
+
+Toy experiments:
+- Double slit (interference vs which-path)
+- Schrödinger’s cat (decoherence suppresses coherence)
+- Wigner’s friend (nested observers; explicit contradiction flag)
+
+## Install
+
+```bash
 python -m venv .venv
-.\.venv\Scripts\python -m pip install -U pip
-.\.venv\Scripts\python -m pip install -e .
-``
+# Windows PowerShell:
+.\.venv\Scripts\Activate.ps1
+pip install -e .
+pip install pytest
+pytest -q
+````
 
-## Run (CLI)
+Windows runners:
 
-`powershell
-qmck cat --interpretation many_worlds
-qmck cat --interpretation copenhagen --seed 1
-qmck cat --interpretation objective_collapse --collapse_strength 0.6 --seed 2
+* quickstart.bat
+* run.ps1 all
 
-qmck wigner --interpretation copenhagen --seed 3
-qmck double-slit --which_path 0.7 --seed 4
-`
+## Run
 
-Outputs:
+```powershell
+powershell -ExecutionPolicy Bypass -File .\run.ps1 all
+```
 
-* Writes a run folder under uns/<timestamp>/
-* Always emits uns/<timestamp>/report.json with parameters + results.
+Generate an example JSON report:
 
-## Design principles
+```bash
+python examples/generate_sample_report.py
+```
 
-* Toy models: simple Hilbert spaces, explicit Born weights, explicit decoherence curves.
-* Report-first: every run produces a machine-readable JSON artifact.
-* Contradiction surfacing: experiments log where linear evolution + definite outcomes collide.
-  "@
+Output: examples/sample_report.json
 
- = @"
-param(
-[string]$Interp = "many_worlds"
-)
-$ErrorActionPreference = "Stop"
-if (!(Test-Path ".venv")) { python -m venv .venv }
-..venv\Scripts\python -m pip install -U pip
-..venv\Scripts\python -m pip install -e .
-qmck cat --interpretation $Interp
+## Contributing / roadmap
+
+* CONTRIBUTING.md
+* ROADMAP.md
+  '@
+
+python .\examples\generate_sample_report.py
+python -m pytest -q
+powershell -ExecutionPolicy Bypass -File .\run.ps1 all
+
+git add -A
+git commit -m "Project polish: docs, templates, README badges, sample report"
+git push
+
+git tag -a v0.1.12 -m "Project polish: docs/templates + sample report + README badges"
+git push --tags
+gh release create v0.1.12 --title "v0.1.12" --notes "Project polish: added community templates, CONTRIBUTING/ROADMAP/CHANGELOG, sample report generator + output, refreshed README with badges and usage."
+
+```
+::contentReference[oaicite:0]{index=0}
+```
+Start-Process "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit/actions"
+Start-Process "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit/releases/tag/v0.1.12"
+Start-Process "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit"
+# If CI is green, ask Grok for a rescored review using these exact bullets
+
+$body = @'
+Re-review QMCK at https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit (latest tag v0.1.12).
+
+Changes since your 6.5/10 review:
+- GitHub Actions CI added (pytest on 3.11–3.13) + badge in README
+- Added CONTRIBUTING.md, ROADMAP.md, CHANGELOG.md, CODE_OF_CONDUCT.md
+- Added issue templates + PR template
+- Added examples/generate_sample_report.py and examples/sample_report.json (concrete JSON output)
+- One-command local verification via run.ps1 all and quickstart.bat
+- Audit artifacts: .asios/audit_index.json (sha256 manifest) + tracked files manifests
+
+Score it again (1–10) focusing on: clarity, reproducibility, auditability, and “contradiction-preserving” originality.
