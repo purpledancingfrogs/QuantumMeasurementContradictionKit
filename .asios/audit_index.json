@@ -1,0 +1,146 @@
+﻿[
+    {
+        "path":  ".asios_execution_trace.log",
+        "sha256":  "b3b18101978b741f58280c1e221648642c064145538b5a5b61c683484fb9844a"
+    },
+    {
+        "path":  ".gitignore",
+        "sha256":  "16ae34ba0d717a5d66375ca68944b0681339dcba625097ca650e28aacbfc1103"
+    },
+    {
+        "path":  ".pytest_cache\\.gitignore",
+        "sha256":  "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d"
+    },
+    {
+        "path":  ".pytest_cache\\CACHEDIR.TAG",
+        "sha256":  "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+        "path":  ".pytest_cache\\README.md",
+        "sha256":  "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70"
+    },
+    {
+        "path":  ".pytest_cache\\v\\cache\\lastfailed",
+        "sha256":  "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+        "path":  ".pytest_cache\\v\\cache\\nodeids",
+        "sha256":  "8be3b4517f16ef2a189c85bc6911de6ddbdc79290ee2a7a69a1ddc2414325564"
+    },
+    {
+        "path":  "LICENSE",
+        "sha256":  "3bed3331b7048bac17cf50e249d560ccc9508c970da8d7b9283bf4f2e633a91d"
+    },
+    {
+        "path":  "pyproject.toml",
+        "sha256":  "32bd059e6ca779e4791b9b18a7b72518c8061f73739f99137a740ec2fcbe0b3e"
+    },
+    {
+        "path":  "quickstart.bat",
+        "sha256":  "ee79aa5d73a213daf3efff2f5e65562f5f760e37bbf015ec9604e06c044fb263"
+    },
+    {
+        "path":  "README.md",
+        "sha256":  "6b8f78096d359b7022e9cdf80092b8e7ebd89d3cfc6644e3eff5300233c1edc6"
+    },
+    {
+        "path":  "run.ps1",
+        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+        "path":  "runs\\run_20251226_061449.txt",
+        "sha256":  "a6f75d8e95c2b7b7b798ef4837b2707e847927e98c70c186b273cb409c81dbee"
+    },
+    {
+        "path":  "src\\qmck.egg-info\\dependency_links.txt",
+        "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+        "path":  "src\\qmck.egg-info\\entry_points.txt",
+        "sha256":  "b1752be940357e367601caa5ab7a5ae31f476337a177654ddf57558a64f430a2"
+    },
+    {
+        "path":  "src\\qmck.egg-info\\PKG-INFO",
+        "sha256":  "52c18489407d6782b568937c00b9873fdc9b82e63f4acd56654431d7c193c4e3"
+    },
+    {
+        "path":  "src\\qmck.egg-info\\SOURCES.txt",
+        "sha256":  "aa45084a5ac0c212388c26589aace9a1018655265911a1aef8ce21bcb3b62ff6"
+    },
+    {
+        "path":  "src\\qmck.egg-info\\top_level.txt",
+        "sha256":  "940c112fbb2006f1a9666d7e2ffb8d227817e439af1812a57286c05053e8653f"
+    },
+    {
+        "path":  "src\\qmck\\__pycache__\\cli.cpython-313.pyc",
+        "sha256":  "e174a85abd251d15561224cfc26603ac7fae77bef93c7c5d2845cd6e724f3c98"
+    },
+    {
+        "path":  "src\\qmck\\cli.py",
+        "sha256":  "d19e6de16bc082c606f65b70d6c66598ba037c97e3ca96e607037506bbc6919a"
+    },
+    {
+        "path":  "src\\qmck\\core\\decoherence.py",
+        "sha256":  "f9a0ec040dc331f15e274242fb9d54c852c8a4fa87059ec9d65942bfe8166c4e"
+    },
+    {
+        "path":  "src\\qmck\\core\\state.py",
+        "sha256":  "839556fb6f729585823ebad50f804e18dbaaecedbc55223a7bbd0ef4a82579e1"
+    },
+    {
+        "path":  "src\\qmck\\experiments\\__pycache__\\double_slit.cpython-313.pyc",
+        "sha256":  "85c8afa34f20203b2e557b64ba26be8a850c6f0ff66a69356a04787626b2d15a"
+    },
+    {
+        "path":  "src\\qmck\\experiments\\__pycache__\\schrodinger_cat.cpython-313.pyc",
+        "sha256":  "6549eba239855d77aba356440b80023807664a134dd4a15177e663825c72f83e"
+    },
+    {
+        "path":  "src\\qmck\\experiments\\__pycache__\\wigner_friend.cpython-313.pyc",
+        "sha256":  "7715e68495b154941eead0ebca115fa9f27ba6e789050bab350c42c34216be78"
+    },
+    {
+        "path":  "src\\qmck\\experiments\\double_slit.py",
+        "sha256":  "75bc1e27ddfb26da594804bb3803a2b4085d65c5d941acd3902d2cb6ad3ba6d3"
+    },
+    {
+        "path":  "src\\qmck\\experiments\\schrodinger_cat.py",
+        "sha256":  "04086d01682cf972cc678f79655b008705f36f72d7986fbd1ccd1528801a2491"
+    },
+    {
+        "path":  "src\\qmck\\experiments\\wigner_friend.py",
+        "sha256":  "248e16da8f69cdcb0e096b019b509d2099f9622d7efb04dcdfcb3af2ae47e61c"
+    },
+    {
+        "path":  "src\\qmck\\interpretations\\copenhagen.py",
+        "sha256":  "68e067bdfeb1f7e9c820011305905314cfbc65f15b0a33be3288b079cbbbbe6a"
+    },
+    {
+        "path":  "src\\qmck\\interpretations\\manyworlds.py",
+        "sha256":  "78b664afa2001b025e1cac54c33aed30e83a59e65a29ee0a09b5a07578cf04cb"
+    },
+    {
+        "path":  "src\\qmck\\interpretations\\objective_collapse.py",
+        "sha256":  "20f2bbd03f29a23f9f5a2cf55b2f5d7d7b9e29637552ff1db9f0aab87cc0867d"
+    },
+    {
+        "path":  "src\\qmck\\utils.py",
+        "sha256":  "effcee029270d21147f6ca6d97c181db92d029960c043e7d8ef92ea5d174966f"
+    },
+    {
+        "path":  "tests\\__pycache__\\test_experiments.cpython-313-pytest-9.0.1.pyc",
+        "sha256":  "f265462d6eebce557c4427ccd0196c94d1e0713cfeea790bc54a23cb08b51c2d"
+    },
+    {
+        "path":  "tests\\__pycache__\\test_smoke.cpython-313-pytest-9.0.1.pyc",
+        "sha256":  "56e96cad5fd663e7b8ebb730b006ba02763087530d50c519d8b78df6aba38fb5"
+    },
+    {
+        "path":  "tests\\test_experiments.py",
+        "sha256":  "c48ea2b51585be0c76dfa4c9579c2a80ea4bef00c3ff0cc7a2196d17726c0fde"
+    },
+    {
+        "path":  "tests\\test_smoke.py",
+        "sha256":  "c7ef090001a72cbc7ea7f0b229a79fa2340fe706ab76c1d5214cc1928c3793a4"
+    }
+]
