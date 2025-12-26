@@ -1,8 +1,15 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
+
+
+keywords = ["quantum", "measurement", "foundations", "copenhagen", "many-worlds", "objective-collapse", "wigner's-friend", "double-slit", "decoherence", "toy-models"]
+[project.urls]
+Repository = "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit"
+Issues = "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit/issues"
+
 name = "qmck"
 version = "0.1.0"
 description = "QuantumMeasurementContradictionKit: toy experiments for the measurement problem."
