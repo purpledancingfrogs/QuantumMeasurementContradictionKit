@@ -1,6 +1,6 @@
-# QuantumMeasurementContradictionKit (QMCK)
+﻿# QuantumMeasurementContradictionKit (QMCK)
 
-Sandbox for the quantum measurement problem: small, deterministic toy experiments that preserve (not “solve”) the unitary-vs-outcome contradiction.
+Sandbox for the quantum measurement problem: small, deterministic toy experiments that preserve (not â€œsolveâ€) the unitary-vs-outcome contradiction.
 
 ![CI](https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -14,8 +14,8 @@ Interpretations:
 
 Toy experiments:
 - Double slit (interference vs which-path)
-- Schrödinger’s cat (decoherence suppresses coherence)
-- Wigner’s friend (nested observers; explicit contradiction flag)
+- SchrÃ¶dingerâ€™s cat (decoherence suppresses coherence)
+- Wignerâ€™s friend (nested observers; explicit contradiction flag)
 
 ## Install
 
@@ -77,14 +77,14 @@ $body = @'
 Re-review QMCK at https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit (latest tag v0.1.12).
 
 Changes since your 6.5/10 review:
-- GitHub Actions CI added (pytest on 3.11–3.13) + badge in README
+- GitHub Actions CI added (pytest on 3.11â€“3.13) + badge in README
 - Added CONTRIBUTING.md, ROADMAP.md, CHANGELOG.md, CODE_OF_CONDUCT.md
 - Added issue templates + PR template
 - Added examples/generate_sample_report.py and examples/sample_report.json (concrete JSON output)
 - One-command local verification via run.ps1 all and quickstart.bat
 - Audit artifacts: .asios/audit_index.json (sha256 manifest) + tracked files manifests
 
-Score it again (1–10) focusing on: clarity, reproducibility, auditability, and “contradiction-preserving” originality.
+Score it again (1â€“10) focusing on: clarity, reproducibility, auditability, and â€œcontradiction-preservingâ€ originality.
 ## Documentation
 - docs/quickstart.md
 - docs/outputs.md
@@ -94,3 +94,4 @@ Score it again (1–10) focusing on: clarity, reproducibility, auditability, and
 - examples/sample_report.json
 ## Cite
 - CITATION.cff
+
