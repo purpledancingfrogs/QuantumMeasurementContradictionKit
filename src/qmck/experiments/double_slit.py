@@ -25,5 +25,5 @@ def run(shots: int = 2000, which_path: float = 0.0, seed: int = 0) -> DoubleSlit
         if rng.random() < p:
             hits += 1
 
-    note = f"toy model: V≈{visibility:.3f}, D≈{which_path:.3f}, hits={hits}/{shots}"
+    note = f"toy model: V~={visibility:.3f}, D~={which_path:.3f}, hits={hits}/{shots}"
     return DoubleSlitResult(shots=int(shots), visibility=float(visibility), which_path_info=float(which_path), note=note)
