@@ -85,3 +85,10 @@ Changes since your 6.5/10 review:
 - Audit artifacts: .asios/audit_index.json (sha256 manifest) + tracked files manifests
 
 Score it again (1–10) focusing on: clarity, reproducibility, auditability, and “contradiction-preserving” originality.
+## Documentation
+- docs/quickstart.md
+- docs/outputs.md
+- docs/design.md
+
+## Example output
+- examples/sample_report.json
