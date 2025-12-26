@@ -1,45 +1,31 @@
-from **future** import annotations
-import argparse
-from typing import Dict, Optional
-from ..utils import prepare_run_dir, write_json, rng
+from __future__ import annotations
 
-def run(which_path: float, seed: Optional[int]) -> Dict:
-# which_path in [0,1] reduces interference visibility
-wp = float(max(0.0, min(1.0, which_path)))
-visibility = 1.0 - wp
-r = rng(seed)
-# toy "screen" outcomes: center vs side
-# higher visibility -> more center clustering
-p_center = 0.5 + 0.45 * visibility
-center = (r.random() < p_center)
+from dataclasses import dataclass
+import math
+import random
 
-`
-return {
-    "experiment": "double_slit",
-    "params": {"which_path": wp, "seed": seed},
-    "derived": {"visibility": visibility, "p_center": p_center},
-    "sample": {"hit": "center" if center else "side"},
-    "flags": {
-        "complementarity_tradeoff": True,
-        "which_path_vs_interference": True,
-    },
-    "note": "Toy: demonstrates monotonic tradeoff without claiming any ontic picture."
-}
-`
+@dataclass(frozen=True)
+class DoubleSlitResult:
+    shots: int
+    visibility: float
+    which_path_info: float
+    note: str
 
-def main(argv=None) -> int:
-ap = argparse.ArgumentParser()
-ap.add_argument("--which_path", type=float, default=0.0)
-ap.add_argument("--seed", type=int, default=None)
-args = ap.parse_args(argv)
+def run(shots: int = 2000, which_path: float = 0.0, seed: int = 0) -> DoubleSlitResult:
+    \"\"\"Toy double-slit: which_path in [0,1] reduces interference visibility.\"\"\"
+    rng = random.Random(seed)
+    which_path = max(0.0, min(1.0, float(which_path)))
 
-`
-rep = run(args.which_path, args.seed)
-paths = prepare_run_dir()
-write_json(paths.report_path, rep)
-print(paths.report_path)
-return 0
-`
+    # Simple complementarity toy model: V^2 + D^2 <= 1
+    visibility = math.sqrt(max(0.0, 1.0 - which_path**2))
 
-if **name** == "**main**":
-raise SystemExit(main())
+    # simulate counts just to make it feel like an experiment
+    hits = 0
+    for _ in range(int(shots)):
+        phase = rng.random() * 2.0 * math.pi
+        p = 0.5 * (1.0 + visibility * math.cos(phase))
+        if rng.random() < p:
+            hits += 1
+
+    note = f"toy model: V≈{visibility:.3f}, D≈{which_path:.3f}, hits={hits}/{shots}"
+    return DoubleSlitResult(shots=int(shots), visibility=float(visibility), which_path_info=float(which_path), note=note)

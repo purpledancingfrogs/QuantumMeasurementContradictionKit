@@ -1,60 +1,24 @@
-from **future** import annotations
-import argparse
-from typing import Dict, Optional
-from ..core.state import TwoStateSystem
-from ..interpretations.copenhagen import measure as copenhagen_measure
-from ..interpretations.manyworlds import branch as mw_branch
-from ..interpretations.objective_collapse import objective_collapse as obj_collapse
-from ..utils import prepare_run_dir, write_json
+from __future__ import annotations
 
-def run(interpretation: str, seed: Optional[int]) -> Dict:
-# Friend measures a qubit; Wigner treats lab as superposed
-qubit = TwoStateSystem(a0=1+0j, a1=1+0j, label0="up", label1="down")
+from dataclasses import dataclass
 
-`
-friend_update = None
-wigner_update = None
+@dataclass(frozen=True)
+class WignerFriendResult:
+    friend_outcome: str
+    wigner_description: str
+    contradiction_flag: bool
+    note: str
 
-if interpretation == "copenhagen":
-    friend_update = copenhagen_measure(qubit, seed=seed)
-    # Wigner sees collapsed lab state if he trusts friend record
-    wigner_update = {"assumption": "friend_record_is_classical", "lab_state": friend_update["post"]}
-elif interpretation == "many_worlds":
-    # Friend branches; Wigner can still model lab unitarily
-    friend_update = mw_branch(qubit)
-    wigner_update = {"assumption": "unitary_labisolation", "lab_branches": friend_update["branches"]}
-elif interpretation == "objective_collapse":
-    friend_update = obj_collapse(qubit, collapse_strength=0.6, seed=seed)
-    wigner_update = {"assumption": "stochastic_collapse", "lab_state": friend_update["post"]}
-else:
-    raise ValueError(f"unknown interpretation: {interpretation}")
+def run(friend_basis: str = "z", wigner_basis: str = "superposition") -> WignerFriendResult:
+    \"\"\"Toy Wigner's friend: flags the role-contradiction when descriptions differ.\"\"\"
+    friend_outcome = "definite outcome (collapsed)" if friend_basis.lower() in {"z","computational"} else "basis-dependent outcome"
+    wigner_description = "unitary superposition" if wigner_basis.lower() in {"superposition","unitary"} else "collapsed mixture"
 
-return {
-    "experiment": "wigner_friend",
-    "params": {"interpretation": interpretation, "seed": seed},
-    "friend_update": friend_update,
-    "wigner_update": wigner_update,
-    "flags": {
-        "nested_observer_update_incompatibility": True,
-        "single_world_consistency_pressure": True,
-    },
-    "note": "Toy: highlights that 'state update rule' depends on who is treated as an observer."
-}
-`
-
-def main(argv=None) -> int:
-ap = argparse.ArgumentParser()
-ap.add_argument("--interpretation", choices=["many_worlds","copenhagen","objective_collapse"], required=True)
-ap.add_argument("--seed", type=int, default=None)
-args = ap.parse_args(argv)
-
-`
-rep = run(args.interpretation, args.seed)
-paths = prepare_run_dir()
-write_json(paths.report_path, rep)
-print(paths.report_path)
-return 0
-`
-
-if **name** == "**main**":
-raise SystemExit(main())
+    contradiction = (friend_outcome.startswith("definite") and wigner_description == "unitary superposition")
+    note = "toy: friend assigns collapse; wigner assigns unitary evolution" if contradiction else "toy: descriptions aligned"
+    return WignerFriendResult(
+        friend_outcome=friend_outcome,
+        wigner_description=wigner_description,
+        contradiction_flag=bool(contradiction),
+        note=note,
+    )
