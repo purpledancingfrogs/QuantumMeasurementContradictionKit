@@ -12,14 +12,12 @@ class DoubleSlitResult:
     note: str
 
 def run(shots: int = 2000, which_path: float = 0.0, seed: int = 0) -> DoubleSlitResult:
-    \"\"\"Toy double-slit: which_path in [0,1] reduces interference visibility.\"\"\"
+    """Toy double-slit: which_path in [0,1] reduces interference visibility."""
     rng = random.Random(seed)
     which_path = max(0.0, min(1.0, float(which_path)))
 
-    # Simple complementarity toy model: V^2 + D^2 <= 1
     visibility = math.sqrt(max(0.0, 1.0 - which_path**2))
 
-    # simulate counts just to make it feel like an experiment
     hits = 0
     for _ in range(int(shots)):
         phase = rng.random() * 2.0 * math.pi
