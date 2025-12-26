@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 from **future** import annotations
 import json
 import os

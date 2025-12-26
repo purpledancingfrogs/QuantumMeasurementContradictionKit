@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 import argparse, json, inspect, sys
 from pathlib import Path
 from dataclasses import is_dataclass, asdict

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 from **future** import annotations
 from typing import Dict
 from ..core.state import TwoStateSystem
