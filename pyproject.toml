@@ -12,7 +12,6 @@ license = {file = "LICENSE"}
 authors = [{name="purpledancingfrogs"}]
 keywords = ["quantum","measurement","decoherence","foundations","simulations"]
 classifiers = [
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
 ]
@@ -23,6 +22,7 @@ dependencies = ["numpy>=1.24"]
 dev = ["pytest>=7","pytest-cov>=4","build>=1","twine>=5"]
 
 [tool.setuptools]
+license-files = ["LICENSE"]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
