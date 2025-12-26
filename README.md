@@ -1,4 +1,4 @@
-﻿# QuantumMeasurementContradictionKit (QMCK)
+# QuantumMeasurementContradictionKit (QMCK)
 
 Sandbox for the quantum measurement problem: small, deterministic toy experiments that preserve (not â€œsolveâ€) the unitary-vs-outcome contradiction.
 
@@ -95,3 +95,9 @@ Score it again (1â€“10) focusing on: clarity, reproducibility, auditability
 ## Cite
 - CITATION.cff
 
+
+## Quickstart
+
+`ash
+python scripts/quickstart.py
+` 
