@@ -1,0 +1,57 @@
+name: packaging
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  package-smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install build tooling
+        run: |
+          python -m pip install -U pip
+          python -m pip install -U build twine pytest
+
+      - name: Build sdist+wheel
+        run: |
+          python -m build
+
+      - name: Twine check dist/*
+        run: |
+          python -m twine check dist/*
+
+      - name: Install wheel and smoke-test entrypoints
+        run: |
+          python -m pip install dist/*.whl
+          python -m qmck --help
+          qmck --help
+
+      - name: Pytest
+        run: |
+          python -m pytest -q
+
+      - name: Deterministic sample artifact hash (seed=123)
+        run: |
+          python tools/generate_sample_json.py --seed 123 --out runs/sample_seed123.json
+          python - <<'PY'
+          import hashlib, re, pathlib
+          p = pathlib.Path("runs/sample_seed123.json")
+          h = hashlib.sha256(p.read_bytes()).hexdigest()
+          md = pathlib.Path("docs/EXPECTED_OUTPUTS.md").read_text(encoding="utf-8")
+          m = re.search(r"sha256:\s*([0-9a-f]{64})", md, flags=re.I)
+          assert m, "expected sha256 not found in docs/EXPECTED_OUTPUTS.md"
+          exp = m.group(1).lower()
+          assert h == exp, f"sha256 mismatch: got {h} expected {exp}"
+          print("OK deterministic sample sha256:", h)
+          PY
