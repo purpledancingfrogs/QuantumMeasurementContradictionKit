@@ -1,0 +1,32 @@
+{
+  "seed": 123,
+  "experiments": {
+    "double_slit": {
+      "entrypoint": "run",
+      "result": {
+        "shots": 2000,
+        "visibility": 0.9797958971132712,
+        "which_path_info": 0.2,
+        "note": "toy model: V~=0.980, D~=0.200, hits=1031/2000"
+      }
+    },
+    "schrodinger_cat": {
+      "entrypoint": "run",
+      "result": {
+        "alive_prob": 0.5,
+        "dead_prob": 0.5,
+        "coherence": 0.8,
+        "note": "toy cat: P(alive)=0.5, P(dead)=0.5, coherence~=0.800"
+      }
+    },
+    "wigner_friend": {
+      "entrypoint": "run",
+      "result": {
+        "friend_outcome": "definite outcome (collapsed)",
+        "wigner_description": "unitary superposition",
+        "contradiction_flag": true,
+        "note": "toy: friend assigns collapse; wigner assigns unitary evolution"
+      }
+    }
+  }
+}
