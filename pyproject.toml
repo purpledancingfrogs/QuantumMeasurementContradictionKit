@@ -1,24 +1,29 @@
-﻿[build-system]
+[build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-
-
-keywords = ["quantum", "measurement", "foundations", "copenhagen", "many-worlds", "objective-collapse", "wigner's-friend", "double-slit", "decoherence", "toy-models"]
-[project.urls]
-Repository = "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit"
-Issues = "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit/issues"
-
 name = "qmck"
 version = "0.1.0"
-description = "QuantumMeasurementContradictionKit: toy experiments for the measurement problem."
+description = "QuantumMeasurementContradictionKit: sandbox experiments that surface measurement-problem contradictions."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+license = {file = "LICENSE"}
+authors = [{name="purpledancingfrogs"}]
+keywords = ["quantum","measurement","decoherence","foundations","simulations"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
 
-[project.scripts]
-qmck = "qmck.cli:main"
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7","pytest-cov>=4","build>=1","twine>=5"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
