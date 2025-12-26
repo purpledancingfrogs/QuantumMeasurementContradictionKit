@@ -1,9 +1,12 @@
 cff-version: 1.2.0
-title: QuantumMeasurementContradictionKit
-message: If you use QMCK for teaching, demos, or derivative work, please cite it.
-type: software
-license: MIT
-repository-code: https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit
+message: "If you use this software, please cite it."
+title: "QuantumMeasurementContradictionKit"
 authors:
-  - name: Nadine Squires
-version: 0.1.0
+  - name: "purpledancingfrogs"
+license: "MIT"
+repository-code: "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit"
+keywords:
+  - quantum
+  - measurement
+  - decoherence
+  - foundations

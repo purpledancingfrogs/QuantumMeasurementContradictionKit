@@ -1,14 +1,7 @@
 # Security Policy
 
-This project is a local educational sandbox and does not intentionally accept untrusted remote input.
-
-## Supported Versions
-Only the latest tagged release is supported.
-
 ## Reporting a Vulnerability
-Open a GitHub issue with:
-- version / commit hash
-- reproduction steps
-- impact assessment
+Open a GitHub Security Advisory (preferred) or file a private report to the repository owner.
 
-Do not include secrets in issues.
+## Scope
+This repository is a research sandbox. Do not report theoretical issues as security vulnerabilities.

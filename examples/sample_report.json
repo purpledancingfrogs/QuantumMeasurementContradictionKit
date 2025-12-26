@@ -1,6 +1,6 @@
 {
   "double_slit": {
-    "note": "toy model: V\u22480.980, D\u22480.200, hits=1031/2000",
+    "note": "toy model: V~=0.980, D~=0.200, hits=1031/2000",
     "shots": 2000,
     "visibility": 0.9797958971132712,
     "which_path_info": 0.2
@@ -9,7 +9,7 @@
     "alive_prob": 0.5,
     "coherence": 0.8,
     "dead_prob": 0.5,
-    "note": "toy cat: P(alive)=0.5, P(dead)=0.5, coherence\u22480.800"
+    "note": "toy cat: P(alive)=0.5, P(dead)=0.5, coherence~=0.800"
   },
   "wigner_friend": {
     "contradiction_flag": true,
