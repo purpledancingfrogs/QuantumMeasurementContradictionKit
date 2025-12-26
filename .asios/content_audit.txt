@@ -1,0 +1,14 @@
+﻿QMCK content audit
+UTC: 2025-12-26T11:29:24Z
+
+== Empty or near-empty files (<= 5 bytes) ==
+C:\Users\quant\Desktop\QuantumMeasurementContradictionKit\.pytest_cache\v\cache\lastfailed
+C:\Users\quant\Desktop\QuantumMeasurementContradictionKit\run.ps1
+C:\Users\quant\Desktop\QuantumMeasurementContradictionKit\src\qmck.egg-info\dependency_links.txt
+C:\Users\quant\Desktop\QuantumMeasurementContradictionKit\src\qmck.egg-info\top_level.txt
+
+== Placeholder patterns ==
+C:\Users\quant\Desktop\QuantumMeasurementContradictionKit\.asios\content_audit.txt
+
+== Tiny python files (< 200 bytes) ==
+
