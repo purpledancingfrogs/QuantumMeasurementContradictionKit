@@ -1,12 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it."
 title: "QuantumMeasurementContradictionKit"
+type: software
 authors:
-  - name: "purpledancingfrogs"
-license: "MIT"
+  - family-names: "Squires"
+    given-names: "Nadine"
 repository-code: "https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit"
-keywords:
-  - quantum
-  - measurement
-  - decoherence
-  - foundations
+license: "MIT"

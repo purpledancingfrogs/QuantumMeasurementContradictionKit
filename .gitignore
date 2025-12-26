@@ -17,4 +17,23 @@ venv/
 dist/
 build/
 *.egg-info/
-pip-wheel-metadata/
+pip-wheel-metadata/# build artifacts
+dist/
+build/
+*.egg-info/
+.eggs/
+__pycache__/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# local env
+.venv/
+.env/
+.vscode/
+.idea/
+
+# runtime outputs (keep the audited deterministic sample only)
+runs/*
+!runs/sample_seed123.json
