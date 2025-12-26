@@ -9,6 +9,7 @@ description = "QuantumMeasurementContradictionKit: sandbox experiments that surf
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
+license-files = ["LICENSE"]
 authors = [{name="purpledancingfrogs"}]
 keywords = ["quantum","measurement","decoherence","foundations","simulations"]
 classifiers = [
@@ -22,7 +23,6 @@ dependencies = ["numpy>=1.24"]
 dev = ["pytest>=7","pytest-cov>=4","build>=1","twine>=5"]
 
 [tool.setuptools]
-license-files = ["LICENSE"]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
