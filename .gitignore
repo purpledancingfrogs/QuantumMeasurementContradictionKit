@@ -13,4 +13,11 @@ dist/
 build/
 *.egg-info/
 runs/
-.DS_Store
+.DS_Storeruns/
+run/
+outputs/
+output/
+artifacts/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
