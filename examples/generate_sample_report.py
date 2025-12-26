@@ -1,9 +1,7 @@
 from __future__ import annotations
 
+import argparse
 import json
-from dataclasses import asdict, is_dataclass
-from datetime import datetime, timezone
-from importlib import metadata
 from pathlib import Path
 
 from qmck.experiments.double_slit import run as run_double_slit
@@ -11,42 +9,32 @@ from qmck.experiments.schrodinger_cat import run as run_cat
 from qmck.experiments.wigner_friend import run as run_wigner
 
 
-def _to_obj(x):
-    if is_dataclass(x):
-        return asdict(x)
-    if isinstance(x, dict):
-        return x
-    if hasattr(x, "__dict__"):
-        return dict(x.__dict__)
-    return x
+def build_report(which_path: float, shots: int, seed: int, decoherence: float) -> dict:
+    ds = run_double_slit(shots=shots, which_path=which_path, seed=seed).__dict__
+    cat = run_cat(decoherence=decoherence).__dict__
+    wf = run_wigner().__dict__
+    return {
+        "double_slit": ds,
+        "schrodinger_cat": cat,
+        "wigner_friend": wf,
+    }
 
 
 def main() -> int:
-    repo = Path(__file__).resolve().parents[1]
-    out_dir = repo / "examples"
-    out_dir.mkdir(parents=True, exist_ok=True)
+    ap = argparse.ArgumentParser(description="Generate a concrete QMCK sample_report.json")
+    ap.add_argument("--out", default="examples/sample_report.json", help="Output JSON path")
+    ap.add_argument("--which-path", type=float, default=0.2, help="Which-path information in [0,1]")
+    ap.add_argument("--shots", type=int, default=2000, help="Number of shots")
+    ap.add_argument("--seed", type=int, default=123, help="RNG seed")
+    ap.add_argument("--decoherence", type=float, default=0.2, help="Decoherence in [0,1]")
+    args = ap.parse_args()
 
-    try:
-        version = metadata.version("qmck")
-    except Exception:
-        version = "unknown"
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
 
-    payload = {
-        "tool": "QuantumMeasurementContradictionKit",
-        "package": "qmck",
-        "version": version,
-        "generated_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "runs": {
-            "double_slit": _to_obj(run_double_slit(which_path=0.2, shots=2000, seed=123)),
-            "schrodinger_cat": _to_obj(run_cat(decoherence=0.2)),
-            "wigner_friend": _to_obj(run_wigner()),
-        },
-        "design_note": "Toy outputs preserve (not resolve) the unitary-vs-outcome contradiction; see Wigner's friend contradiction_flag.",
-    }
-
-    out_path = out_dir / "sample_report.json"
-    out_path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
-    print(out_path.as_posix())
+    report = build_report(args.which_path, args.shots, args.seed, args.decoherence)
+    out.write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
+    print(f"Wrote {out}")
     return 0
 
 

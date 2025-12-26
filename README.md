@@ -92,3 +92,5 @@ Score it again (1–10) focusing on: clarity, reproducibility, auditability, and
 
 ## Example output
 - examples/sample_report.json
+## Cite
+- CITATION.cff

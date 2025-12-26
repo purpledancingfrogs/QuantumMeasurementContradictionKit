@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: QuantumMeasurementContradictionKit
+message: If you use QMCK for teaching, demos, or derivative work, please cite it.
+type: software
+license: MIT
+repository-code: https://github.com/purpledancingfrogs/QuantumMeasurementContradictionKit
+authors:
+  - name: Nadine Squires
+version: 0.1.0
